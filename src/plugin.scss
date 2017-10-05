@@ -1,0 +1,149 @@
+// Sass for videojs-audio-player
+@mixin bp($point) {
+  @if $point == xs {
+    @media (min-width: 420px) { @content; }
+  }
+  @else if $point == sm {
+    @media (min-width: 600px) { @content; }
+  }
+  @else if $point == md {
+    @media (min-width: 767px) { @content; }
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.video-js {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+
+  // This class is added to the video.js element by the plugin by default.
+  &.vjs-audio-player {
+    display: block;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+  }
+}
+
+.vjs-ap-container {
+  display: flex;
+  height: 6em;
+}
+.vjs-ap-dash {
+  flex: 1;
+  position: relative;
+
+  .vjs-ap-control-bar {
+    display: flex;
+    height: 6em;
+    background-color: transparent;
+    font-size: 90%;
+    @include bp(md) {
+      font-size: 100%;
+    }
+
+    .vjs-control {
+      line-height: 6em;
+
+      &:before {
+        line-height: inherit;
+        text-shadow: none;
+      }
+    }
+    .vjs-progress-holder {
+      height: 0.6em;
+      border-radius: 0.35em;
+      font-size: inherit !important;
+
+      .vjs-play-progress {
+        border-radius: 0.35em;
+        background-color: #FFF;
+
+        &:after {
+          display: none !important;
+        }
+      }
+      .vjs-load-progress {
+        border-radius: 0.35em;
+
+        div {
+          border-radius: 0.35em;
+        }
+      }
+    }
+    .vjs-mouse-display {
+      display: none !important;
+    }
+    .vjs-play-progress {
+      &:before {
+        display: none;
+      }
+    }
+    .vjs-play-control {
+      width: 6em;
+      background-color: rgba(0,0,0,0.4);
+      border-radius: 50%;
+      border: 2px solid #fff;
+
+      &:before {
+        font-size: 4em;
+        margin-top: -2px;
+      }
+    }
+    .vjs-progress-control {
+      padding-left: 2em;
+    }
+    .vjs-progress-control,
+    .vjs-volume-menu-button .vjs-menu {
+      line-height: 1;
+    }
+    .vjs-volume-menu-button {
+      order: 1;
+      width: 12em;
+      
+      &:before {
+        font-size: 1.6em;
+        text-align: right;
+      }
+      .vjs-volume-bar {
+        margin: 2.85em 0.45em;
+        width: auto;
+      }
+      .vjs-menu {
+        opacity: 1;
+        display: block;
+
+        .vjs-menu-content {
+          width: 8em;
+          height: 6em;
+        }
+      }
+    }
+  }
+}
+.vjs-ap-time-display {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 10em;
+
+  * {
+    line-height: 1 !important;
+  }
+  > div {
+    display: block !important;
+  }
+  .vjs-time-control {
+    padding: 0;
+    font-size: 1.2em;
+    color: rgba(255,255,255,0.7);
+
+    &.vjs-time-divider {
+      padding: 0 .25rem;
+      min-width: 0;
+      text-align: center;
+    }
+  }
+}

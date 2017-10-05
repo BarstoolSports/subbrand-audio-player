@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>videojs-audio-player Demo</title>
+  <link href="node_modules/video.js/dist/video-js.css" rel="stylesheet">
+  <link href="dist/videojs-audio-player.css" rel="stylesheet">
+</head>
+<body>
+  <audio id="videojs-audio-player" class="video-js vjs-default-skin" controls preload="auto">
+    <source src="http://dts.podtrac.com/redirect.mp3/landmark.barstoolsports.net/laces-out/laces_out_10217.mp3" type='audio/mp3'/>
+  </audio>
+  
+  <ul>
+    <li><a href="test/">Run unit tests in browser.</a></li>
+    
+  </ul>
+  
+  <script src="node_modules/video.js/dist/video.js"></script>
+  <script src="dist/videojs-audio-player.js"></script>
+  <script>
+    (function(window, videojs) {
+      var player = window.player = videojs('videojs-audio-player');
+      player.audioPlayer();
+    }(window, window.videojs));
+  </script>
+</body>
+</html>
